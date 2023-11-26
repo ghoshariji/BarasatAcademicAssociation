@@ -1,0 +1,298 @@
+#register {
+  background-color: yellow;
+  color: red;
+  border: 2px solid red;
+  box-shadow: 5px 5px;
+}
+#registerButton {
+  color: red;
+}
+
+#signin {
+  background-color: yellow;
+  color: red;
+  border: 2px solid red;
+  box-shadow: 5px 5px;
+}
+#signinButton {
+  color: red;
+}
+#heading {
+  color: red;
+}
+#header {
+  background-color: yellow;
+  font-weight: bold;
+}
+#sidebar {
+  height: 100vh;
+  width: 10%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  background-color: yellow;
+  font-weight: bold;
+  border-radius: 10px;
+}
+#menudiv {
+  color: red;
+  font-weight: bold;
+  width: 20%;
+  border-radius: 10px;
+}
+
+
+
+  #sStart{
+    text-decoration: none;
+    cursor: pointer;
+    border: 2px solid red;
+    color: red;
+    background-color: yellow;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  }
+#sStart:hover {
+    background-color: #2980b9;
+    border-color: #2980b9;
+    color: #fff;
+  }
+
+
+  .result {
+    background-color: #fff;
+    border: 2px solid #333;
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+ 
+  @media (max-width: 767px) {
+    .result {
+      width: 80%;
+      max-width: none;
+    }
+  }
+
+  #tbutton{
+    text-decoration: none;
+    cursor: pointer;
+    border: 2px solid red;
+    color: black;
+    background-color: yellow;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    margin: 1rem;
+  }
+  #tbutton:hover {
+    background-color: #2980b9;
+    border-color: #2980b9;
+    color: #fff;
+  }
+  
+  #addExam {
+    max-width: 600px; /* Adjust the maximum width as needed */
+    margin: auto; /* Center the form horizontally */
+    padding: 20px;
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  #addExam .ant-form-item {
+    margin-bottom: 15px;
+  }
+  
+  #addExam input,
+  #addExam .ant-select-selection {
+    width: 100%; 
+  }
+  
+  #addExam .flex {
+    display: flex;
+  }
+  
+  #addExam .justify-end {
+    justify-content: flex-end;
+  }
+  
+  #addExam .btn {
+    padding: 10px 20px;
+    background-color: yellowgreen;
+    color: black;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  #addExam .btn:hover {
+    background-color:yellow;
+  }
+  #addQuestion {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    background-color: yellow;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  #addQuestion .ant-form-item {
+    margin-bottom: 15px;
+  }
+  
+  #addQuestion input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  #addQuestion .flex {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  #addQuestion .gap-3 {
+    gap: 15px;
+  }
+  
+  #addQuestion .justify-end {
+    justify-content: flex-end;
+    margin-top: 10px;
+  }
+
+  #fstart{
+    text-decoration: none;
+    cursor: pointer;
+    border: 2px solid #3498db;
+    color: red;
+    background-color: yellow;
+    border-radius: 10px;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    padding: 1rem 2rem; 
+  }
+
+  #fstart:hover {
+    background-color: #2980b9;
+    border-color: #2980b9;
+    color: #fff;
+  }
+  #next {
+    text-decoration: none;
+    cursor: pointer;
+    border: 2px solid #3498db;
+    color: red;
+    background-color: yellow;
+    border-radius: 15px;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    padding: 0.5rem 1rem;
+    font-size: 18px; 
+  }
+  
+  #next:hover {
+    background-color: #2980b9;
+    border-color: #2980b9;
+    color: #fff;
+  }
+  #previous {
+    text-decoration: none;
+    cursor: pointer;
+    border: 2px solid #3498db;
+    color: red;
+    background-color: yellow;
+    border-radius: 15px;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    padding: 0.5rem 1rem;
+    font-size: 18px; 
+  }
+  
+  #previous:hover {
+    background-color: #2980b9;
+    border-color: #2980b9;
+    color: #fff;
+  }
+  #submit {
+    text-decoration: none;
+    cursor: pointer;
+    border: 2px solid #3498db;
+    color: red;
+    background-color: yellow;
+    border-radius: 15px;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    padding: 0.5rem 1rem;
+    font-size: 18px; 
+  }
+  
+  #submit:hover {
+    background-color: #2980b9;
+    border-color: #2980b9;
+    color: #fff;
+  }
+  #instructor {
+    text-decoration: none;
+    cursor: pointer;
+    border: 2px solid #3498db;
+    color: red;
+    background-color: yellow;
+    border-radius: 15px;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    padding: 0.5rem 1rem;
+    font-size: 18px; 
+  }
+  
+  #instructor:hover {
+    background-color: #2980b9;
+    border-color: #2980b9;
+    color: #fff;
+  }
+  #addquesSave {
+    text-decoration: none;
+    cursor: pointer;
+    border: 2px solid #3498db;
+    color: red;
+    background-color: yellow;
+    border-radius: 15px;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    padding: 0.5rem 1rem;
+    font-size: 18px; 
+  }
+  
+  #addquesSave:hover {
+    background-color: #2980b9;
+    border-color: #2980b9;
+    color: #fff;
+  }
+  #editExam {
+    text-decoration: none;
+    cursor: pointer;
+    border: 2px solid #3498db;
+    color: red;
+    background-color: yellow;
+    border-radius: 15px;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  }
+  
+  #editExam:hover {
+    background-color: #2980b9;
+    border-color: #2980b9;
+    color: #fff;
+  }
+  #deleteExam {
+    text-decoration: none;
+    cursor: pointer;
+    border: 2px solid #3498db;
+    color: red;
+    background-color: yellow;
+    border-radius: 15px;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  }
+  
+  #deleteExam:hover {
+    background-color: #2980b9;
+    border-color: #2980b9;
+    color: #fff;
+  }
+  
