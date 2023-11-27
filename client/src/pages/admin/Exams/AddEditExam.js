@@ -7,9 +7,10 @@ import {
   getExamById,
   deleteQuestionById,
 } from "../../../apicalls/exams";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams,Link } from "react-router-dom";
 import AddEditQuestion from "./AddEditQuestion";
 const { TabPane } = Tabs;
+
 
 function AddEditExam() {
   const navigate = useNavigate();
@@ -192,6 +193,7 @@ function AddEditExam() {
                   >
                     Add Question
                   </button>
+                  
                 </div>
               </TabPane>
             )}

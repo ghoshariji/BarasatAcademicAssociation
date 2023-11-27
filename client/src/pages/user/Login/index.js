@@ -41,8 +41,6 @@ const index = () => {
               <Form.Item>
                 <button type="submit" id="signinButton">Login</button>
               </Form.Item>
-
-              <Link to="/register">Not a member or register</Link>
             </Form>
           </h1>
         </div>

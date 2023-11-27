@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import PageTitle from "../../../component/pageTitle";
 import { Table, message } from "antd";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Link } from "react-router-dom";
 import { deleteExamById, getAllExams } from "../../../apicalls/exams";
 
 function Index() {
@@ -93,12 +93,14 @@ function Index() {
       <div className="flex justify-between mt-2">
         <PageTitle title="Exams" />
 
+        <Link to="/register" id="link">Add New User</Link>
         <button
           className="primary-outlined-btn flex items-center"
           onClick={() => navigate("/admin/exams/add")} id="addQuestion"
         >
           Add Exam
         </button>
+        
       </div>
 
       <Table columns={columns} dataSource={exams} />

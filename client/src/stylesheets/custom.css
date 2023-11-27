@@ -296,3 +296,19 @@
     color: #fff;
   }
   
+  #link {
+    padding: 5px;
+    text-decoration: none;
+    color:black;
+    background-color: yellow;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 20%;
+    margin: 0.95rem;
+    border: 1px solid black;
+    box-shadow: 1px 1px;
+}
+#link:hover {
+    background-color: red;
+    color: white;
+}

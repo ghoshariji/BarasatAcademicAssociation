@@ -36,7 +36,7 @@ const index = () => {
                 <button type="submit" id="registerButton">Login</button>
               </Form.Item>
 
-              <Link to="/login">Already register or Login</Link>
+              <Link to="/">Go to Home Page</Link>
             </Form>
           </h1>
         </div>
