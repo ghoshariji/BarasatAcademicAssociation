@@ -37,45 +37,93 @@ function WriteExam() {
       message.error(error.message);
     }
   };
-  const calculateResult = async() => {
-try {
-  let correctAnswer = [];
-  let wrongAnswer = [];
-  questions.forEach((question, index) => {
-    if (question.correctOption === selectedOption[index]) {
-      correctAnswer.push(question);
-    } else {
-      wrongAnswer.push(question);
-    }
-  });
+//   const calculateResult = async() => {
+// try {
+//   let correctAnswer = [];
+//   let wrongAnswer = [];
+//   questions.forEach((question, index) => {
+//     if (question.correctOption === selectedOption[index]) {
+//       correctAnswer.push(question);
+//     } else {
+//       wrongAnswer.push(question);
+//     }
+//   });
 
-  let verdict = "Pass";
-  if (correctAnswer.length < examData.passingMarks) {
-    verdict = "Fail";
-  }
-  const tempResult = {
-    correctAnswer,
-    wrongAnswer,
-    verdict
-  }
-  setResult(tempResult);
-  const response = await addReport({
-    exam:params.id,
-    result:tempResult,
-user:user._id,
+//   let verdict = "Pass";
+//   if (correctAnswer.length < examData.passingMarks) {
+//     verdict = "Fail";
+//   }
+//   const tempResult = {
+//     correctAnswer,
+//     wrongAnswer,
+//     verdict
+//   }
+//   setResult(tempResult);
+//   const response = await addReport({
+//     exam:params.id,
+//     result:tempResult,
+// user:user._id,
   
-  })
-  if(response.success){
+//   })
+//   if(response.success){
 
-    setView("result");
+//     setView("result");
+//   }
+//   else{
+//     message.error(response.message);
+//   }
+// } catch (error) {
+//  message.error(error.message)
+// }
+//   };
+
+const calculateResult = async () => {
+  try {
+    let correctAnswer = [];
+    let wrongAnswer = [];
+    let score = 0;
+
+    questions.forEach((question, index) => {
+      if (question.correctOption === selectedOption[index]) {
+        correctAnswer.push(question);
+        score += 1;
+      } else {
+        wrongAnswer.push(question);
+        score -= 0.3;
+      }
+    });
+    score = Math.max(0, score);
+
+    let verdict = "Pass";
+    if (score < examData.passingMarks) {
+      verdict = "Fail";
+    }
+
+    const tempResult = {
+      correctAnswer,
+      wrongAnswer,
+      score,
+      verdict,
+    };
+
+    setResult(tempResult);
+
+    const response = await addReport({
+      exam: params.id,
+      result: tempResult,
+      user: user._id,
+    });
+
+    if (response.success) {
+      setView("result");
+    } else {
+      message.error(response.message);
+    }
+  } catch (error) {
+    message.error(error.message);
   }
-  else{
-    message.error(response.message);
-  }
-} catch (error) {
- message.error(error.message)
-}
-  };
+};
+
 
   const startTimer = () =>{
 let totalSeconds = examData.duration;
@@ -202,6 +250,9 @@ Submit
     </h1>
     <h1 className="text-md">
      Wrong answer : {result.wrongAnswer.length}
+    </h1>
+    <h1 className="text-md">
+     Score : {result.score}
     </h1>
     <h1 className="text-md">
      Passing Marks:{examData.passingMarks}

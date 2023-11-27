@@ -41,7 +41,7 @@ function AdminReports() {
     {
       title: "Obtained Marks",
       dataIndex: "correctAnswers",
-      render: (text, record) => <>{record.result ? record.result.correctAnswer.length : "N/A"}</>,
+      render: (text, record) => <>{record.result ? (record.result.correctAnswer ? record.result.correctAnswer.length : "N/A") : "N/A"}</>,
     },
     {
       title: "Verdict",

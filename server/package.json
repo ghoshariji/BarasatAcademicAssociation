@@ -3,19 +3,18 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "engines":{
-    "node":"18.18.0",
-    "npm":"6.13.4"
-  },
   "scripts": {
-  "start": "nodemon server/server.js",
-  "client":"npm start --prefix client",
-  "dev":"concurrently \"npm run client\" \"npm start\"",
-  "heroku-postbuild":"NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+    "build": "cd server && npm install && cd ../client && npm install && npm run build",
+    "dev": "nodemon index.js",
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "engines": {
+    "node": ">=18.18.0 <19.0.0"
+  },
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "dotenv": "^16.3.1",
