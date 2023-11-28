@@ -27,9 +27,8 @@ function Index() {
     getExams();
   }, []);
 
-  // Check if user is null before rendering the component
   if (!user) {
-    return <div>Loading...</div>; // You can render a loading state or redirect the user to the login page
+    return <div>Loading...</div>; 
   }
 
   return (
@@ -38,7 +37,7 @@ function Index() {
 
       <Row gutter={[16, 16]}>
         {exams.map((exam) => (
-          <Col span={6} key={exam._id} style={{padding:"1rem",margin:"0.5rem",width: "100%"}}>
+          <Col key={exam._id} xs={24} sm={12} md={8} lg={6} style={{ padding: "1rem", margin: "0.5rem" }}>
             <div className="card flex flex-col gap-1">
               <h1 className="text-2xl">
                 <b>{exam?.name}</b>

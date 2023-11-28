@@ -69,35 +69,15 @@ router.post("/get-exam-by-id", authMiddleware, async (req, res) => {
   }
 });
 
-
 // edit exam by id:-
 
-router.post("/edit-exam-by-id",authMiddleware,async(req,res)=>{
-try {
-  await Exam.findByIdAndUpdate(req.body.examId,req.body);
-  res.send({
-    mesg:"Exam edited Succesfully",
-    success:true
-  })
-} catch (error) {
-  res.status(500).send({
-    message: error.message,
-    data: error,
-    success: false,
-  });
-}
-
-
-})
-// Delete exam by id
-
-router.post("/delete-exam-by-id",authMiddleware,async(req,res)=>{
+router.post("/edit-exam-by-id", authMiddleware, async (req, res) => {
   try {
-    await Exam.findByIdAndDelete(req.body.examId);
+    await Exam.findByIdAndUpdate(req.body.examId, req.body);
     res.send({
-      mesg:"Exam Deleted Succesfully",
-      success:true
-    })
+      mesg: "Exam edited Succesfully",
+      success: true,
+    });
   } catch (error) {
     res.status(500).send({
       message: error.message,
@@ -105,10 +85,24 @@ router.post("/delete-exam-by-id",authMiddleware,async(req,res)=>{
       success: false,
     });
   }
-  
-  
-  })
+});
+// Delete exam by id
 
+router.post("/delete-exam-by-id", authMiddleware, async (req, res) => {
+  try {
+    await Exam.findByIdAndDelete(req.body.examId);
+    res.send({
+      mesg: "Exam Deleted Succesfully",
+      success: true,
+    });
+  } catch (error) {
+    res.status(500).send({
+      message: error.message,
+      data: error,
+      success: false,
+    });
+  }
+});
 
 // Add question to exam :-;
 
@@ -141,17 +135,15 @@ router.post("/add-question-to-exam", authMiddleware, async (req, res) => {
   }
 });
 
-
-
 // Edit question in a exam
 
-router.post("/edit-question-in-exam",authMiddleware,async(req,res)=>{
+router.post("/edit-question-in-exam", authMiddleware, async (req, res) => {
   try {
-    await Question.findByIdAndUpdate(req.body.questionId,req.body);
+    await Question.findByIdAndUpdate(req.body.questionId, req.body);
     res.send({
-      mesg:"Question edited succesfully",
-      success:true
-    })
+      mesg: "Question edited succesfully",
+      success: true,
+    });
   } catch (error) {
     res.status(500).send({
       mesg: error.message,
@@ -159,32 +151,33 @@ router.post("/edit-question-in-exam",authMiddleware,async(req,res)=>{
       success: false,
     });
   }
-})
-
+});
 
 // delete question :-
 
-router.post("/delete-question-in-exam",authMiddleware,async(req,res)=>{
+router.post("/delete-question-in-exam", authMiddleware, async (req, res) => {
   try {
+    // delete question from the question collection
     await Question.findByIdAndDelete(req.body.questionId);
-    const exam=await Exam.findByIdAndDelete(req.body.examId);
-    exam.questions = exam.questions.filter((question)=>{
-      question._id != req.body.questionId;
-    });
+
+    // delete question in the exam
+    const exam = await Exam.findById(req.body.examId);
+    exam.questions = exam.questions.filter(
+      (questionId) => questionId.toString() !== req.body.questionId
+    );
     await exam.save();
+
     res.send({
-      mesg:"Question Deleted succesfully",
-      success:true
-    })
+      message: "Question Deleted successfully",
+      success: true,
+    });
   } catch (error) {
     res.status(500).send({
-      mesg: error.message,
+      message: error.message,
       data: error,
       success: false,
     });
   }
-})
 
-
-
+});
 module.exports = router;

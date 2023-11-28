@@ -47,10 +47,6 @@ function Index() {
       dataIndex: "duration",
     },
     {
-      title: "Exam Name",
-      dataIndex: "name",
-    },
-    {
       title: "Category",
       dataIndex: "category",
     },
@@ -93,7 +89,12 @@ function Index() {
       <div className="flex justify-between mt-2">
         <PageTitle title="Exams" />
 
-        <Link to="/register" id="link">Add New User</Link>
+        <button
+          className="primary-outlined-btn flex items-center"
+          onClick={() => navigate("/register")} id="addQuestion"
+        >
+          Add new user
+        </button>
         <button
           className="primary-outlined-btn flex items-center"
           onClick={() => navigate("/admin/exams/add")} id="addQuestion"

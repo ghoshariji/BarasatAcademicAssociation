@@ -1,6 +1,5 @@
 import React from "react";
 import { Form,message } from "antd";
-import {Link} from "react-router-dom"
 import { loginUser } from "../../../apicalls/users";
 
 const index = () => {

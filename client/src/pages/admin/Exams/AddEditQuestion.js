@@ -1,6 +1,6 @@
 import React from "react";
 import { Modal, Form, message } from "antd";
-import { addQuestionToExam } from "../../../apicalls/exams";
+import { addQuestionToExam, editQuestionById } from "../../../apicalls/exams";
 
 function AddEditQuestion({
   showAddEditQuestionModel,
@@ -25,22 +25,31 @@ function AddEditQuestion({
         },
         exam: examId,
       };
-      const response = await addQuestionToExam(requiredPayload);
+      let response;
+      if (selectedQuestion) {
+        response = await editQuestionById({
+          ...requiredPayload,
+          questionId: selectedQuestion._id,
+        });
+      } else {
+        response = await addQuestionToExam(requiredPayload);
+      }
 
       if (response.success) {
         message.success(response.message);
         refreshData();
-        setShowAddEditQuestionModel(false);
       } else {
         message.error(response.message);
       }
     } catch (error) {
       message.error(error.message);
+    } finally {
+      setShowAddEditQuestionModel(false);
+      setselectedQuestion(null);
     }
   };
 
   return (
-    <div>
       <Modal
         title={selectedQuestion ? "Edit Question" : "Add Question"}
         visible={showAddEditQuestionModel}
@@ -92,13 +101,16 @@ function AddEditQuestion({
           </div>
 
           <div className="flex justify-end mt-2 gap-3">
-            <button className="primary-contained-btn" type="submit" id="addquesSave">
+            <button
+              className="primary-contained-btn"
+              type="submit"
+              id="addquesSave"
+            >
               Save
             </button>
           </div>
         </Form>
       </Modal>
-    </div>
   );
 }
 

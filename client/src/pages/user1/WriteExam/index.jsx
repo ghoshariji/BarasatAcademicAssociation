@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import {  getExamById } from "../../../apicalls/exams";
 import {  addReport } from "../../../apicalls/report";
 import Instructor from "./Instructor";
@@ -8,7 +8,6 @@ import { useSelector } from "react-redux";
 
 
 function WriteExam() {
-  const navigate = useNavigate();
   const params = useParams();
   const [view,setView] = useState("instructions");
   const [questions = [],setQuestions] = React.useState([]);

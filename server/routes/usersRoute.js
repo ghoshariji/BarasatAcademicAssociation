@@ -15,7 +15,7 @@ router.post("/register", async (req, res) => {
     if (userExists) {
       return res
         .status(200)
-        .send({ Mesg: "User lready Exists", success: false });
+        .send({ message: "User already Exists", success: false });
     }
 
     // hash password
@@ -29,12 +29,12 @@ router.post("/register", async (req, res) => {
     const newUser = new User(req.body);
     await newUser.save();
     res.send({
-      mesg: "User created succesfully",
+      message: "User created succesfully",
       success: true,
     });
   } catch (error) {
     res.status(500).send({
-      mesg: error.message,
+      message: error.message,
       data: error,
       success: false,
     });

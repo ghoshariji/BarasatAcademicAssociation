@@ -7,10 +7,9 @@ import {
   getExamById,
   deleteQuestionById,
 } from "../../../apicalls/exams";
-import { useNavigate, useParams,Link } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import AddEditQuestion from "./AddEditQuestion";
 const { TabPane } = Tabs;
-
 
 function AddEditExam() {
   const navigate = useNavigate();
@@ -18,8 +17,7 @@ function AddEditExam() {
   const [examData, setExamData] = useState(null);
   const [showAddEditQuestionModal, setShowAddEditQuestionModal] =
     React.useState(false);
-
-  const [selectedQuestion, setselectedQuestion] = React.useState();
+  const [selectedQuestion, setselectedQuestion] = React.useState(null);
 
   const onFinish = async (values) => {
     try {
@@ -81,7 +79,6 @@ function AddEditExam() {
       message.error(error.message);
     }
   };
-
   const questionColumns = [
     {
       title: "Question",
@@ -115,18 +112,25 @@ function AddEditExam() {
       dataIndex: "action",
       render: (text, record) => (
         <div className="flex gap-2">
-          <button
-            className="primary-outlined-btn flex items-center"
+          <i
+            class="ri-pencil-line"
+            onClick={() => {
+              setselectedQuestion(record);
+              setShowAddEditQuestionModal(true);
+            }}
+          ></i>
+
+          <i
+            class="ri-chat-delete-line"
             onClick={() => {
               deleteQuestion(record._id);
             }}
-          >
-            Delete Question
-          </button>
+          ></i>
         </div>
       ),
     },
   ];
+
   return (
     <div>
       <PageTitle title={params.id ? "Edit Exam" : "Add Exam"} />
@@ -175,11 +179,6 @@ function AddEditExam() {
                   Save
                 </button>
               </div>
-
-              <Table
-                columns={questionColumns}
-                dataSource={examData?.questions || []}
-              />
             </TabPane>
             {params.id && (
               <TabPane tab="Questions" key="2">
@@ -193,8 +192,11 @@ function AddEditExam() {
                   >
                     Add Question
                   </button>
-                  
                 </div>
+                <Table
+                  columns={questionColumns}
+                  dataSource={examData?.questions || []}
+                />
               </TabPane>
             )}
           </Tabs>

@@ -33,7 +33,7 @@ const index = () => {
               </Form.Item>
 
               <Form.Item>
-                <button type="submit" id="registerButton">Login</button>
+                <button type="submit" id="registerButton">Create new user</button>
               </Form.Item>
 
               <Link to="/">Go to Home Page</Link>

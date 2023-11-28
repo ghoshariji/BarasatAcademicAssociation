@@ -112,21 +112,29 @@ function ProtectedRoute({ children }) {
             );
           })}
         </div>
-        <div className="body" style={{width:"100%"}}>
-          <div className="header flex-justify-between" id="header" >
-            <h1 className="text-2xl item-center" id="heading" >Barasat Academic Association</h1>
-            <div>
-          <div className="flex gap-1 items-center">
-          <h1 className="text-xl text-white" style={{color:"black"}}>@username : {user?.name}</h1>
-          </div>
-          <span style={{color:"black"}}>
-            Role : {user?.isAdmin ? "Admin" : "User"}
-          </span>
-          </div>
-          </div>
-
-          <div className="content">{children}</div>
-        </div>
+        <div className="body" style={{ width: "100%" }}>
+  <div className="header flex-justify-between" id="header">
+    <h1 className="text-2xl item-center" id="heading">
+      Barasat Academic Association
+    </h1>
+    <marquee behavior="" direction="" style={{color:"red"}}>Online Admission Going on</marquee>
+    <div className="header-content">
+      <div className="card1">
+        <h2>Contact us for your Next Step</h2>
+        <p>Phone : +91-9073587432 /+91-9073345862 /+91-9073099301</p>
+        <p><span id="span1">(swith DESKTOP MODE for better experience)</span></p>
+      </div>
+      <div class="user-info flex gap-1 items-center">
+     
+  <h1 class="text-xl text-white" id="username">
+    username: {user?.name}
+  </h1>
+  <span id="role">Role: {user?.isAdmin ? "Admin" : "User"}</span>
+</div>
+    </div>
+  </div>
+  <div className="content">{children}</div>
+</div>
       </div>
     </div>
   );

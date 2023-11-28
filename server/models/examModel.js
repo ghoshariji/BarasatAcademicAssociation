@@ -11,7 +11,7 @@ const examSchema = new mongoose.Schema(
     },
     category: {
       type: String,
-      require: true,
+      required: true,
     },
     totalMarks: {
       type: Number,

@@ -74,6 +74,20 @@ export const addQuestionToExam = async (payload) => {
   } catch (error) {
     return error.response.data;
   }
+}; 
+
+// edit exam by id
+
+export const editQuestionById = async (payload) => {
+  try {
+    const response = await axiosInstance.post(
+      "/api/exams/edit-question-in-exam",
+      payload
+    );
+    return response.data;
+  } catch (error) {
+    return error.response.data;
+  }
 };
 
 // Delete Exam by id
@@ -89,3 +103,5 @@ export const deleteQuestionById = async (payload) => {
     return error.response.data;
   }
 };
+
+
