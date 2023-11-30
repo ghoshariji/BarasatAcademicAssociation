@@ -83,14 +83,20 @@ const calculateResult = async () => {
     let score = 0;
 
     questions.forEach((question, index) => {
-      if (question.correctOption === selectedOption[index]) {
-        correctAnswer.push(question);
-        score += 1;
-      } else {
-        wrongAnswer.push(question);
-        score -= 0.3;
+      const selected = selectedOption[index];
+
+      if (selected) {
+        if (question.correctOption === selected) {
+          correctAnswer.push(question);
+          score += 1;
+        } else {
+          wrongAnswer.push(question);
+          score -= 0.33; 
+        }
       }
+      
     });
+
     score = Math.max(0, score);
 
     let verdict = "Pass";
@@ -122,6 +128,7 @@ const calculateResult = async () => {
     message.error(error.message);
   }
 };
+
 
 
   const startTimer = () =>{
@@ -171,28 +178,35 @@ if(timeup && view==='questions'){
     <div className="timer">
       <span className="text-2xl">{seconds}</span>
     </div>
-
     </div>
     <div className="flex flex-col gap-2">
-      {Object.keys(questions[selectedQuestion].options).map(
-        (option, index) => (
-          <div
-            className={`flex gap-2 flex-col ${selectedOption[selectedQuestion] === option ? "selected-option" : "option"}`}
-            key={index}
-            onClick={() => {
-              setSelectedOption({
-                ...selectedOption,
-                [selectedQuestion]: option
-              });
-            }}
-          >
-            <h1 className="text-2xl">
-              {option}: {questions[selectedQuestion].options[option]}
-            </h1>
-          </div>
-        )
-      )}
-    </div>
+  {Object.keys(questions[selectedQuestion].options).map(
+    (option, index) => (
+      <div
+        className={`flex gap-2 flex-col ${selectedOption[selectedQuestion] === option ? "selected-option" : "option"}`}
+        key={index}
+        onClick={() => {
+          setSelectedOption((prevSelectedOption) => {
+            const newSelectedOption = { ...prevSelectedOption };
+
+            if (newSelectedOption[selectedQuestion] === option) {
+          
+              newSelectedOption[selectedQuestion] = null;
+            } else {
+              newSelectedOption[selectedQuestion] = option;
+            }
+
+            return newSelectedOption;
+          });
+        }}
+      >
+        <h1 className="text-2xl">
+          {option}: {questions[selectedQuestion].options[option]}
+        </h1>
+      </div>
+    )
+  )}
+</div>
 
     <div className="flex justify-between">
       {selectedQuestion > 0 && (

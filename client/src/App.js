@@ -13,6 +13,7 @@ import UserReports from "./pages/user1/UserReports";
 import Exams from "./pages/admin/Exams";
 import AddEditExam from "./pages/admin/Exams/AddEditExam";
 import AdminReports from "./pages/admin/Exams/AdminReports";
+import Profile from "./pages/common/Profile";
 
 function App() {
   return (
@@ -32,7 +33,7 @@ function App() {
               </ProtectedRoute>
             }
           />
-             <Route
+          <Route
             path="/user/write-exam/:id"
             element={
               <ProtectedRoute>
@@ -80,6 +81,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <AdminReports />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/profile"
+            element={
+              <ProtectedRoute>
+                <Profile />
               </ProtectedRoute>
             }
           />

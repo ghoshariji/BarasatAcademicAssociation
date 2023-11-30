@@ -105,7 +105,8 @@ function ProtectedRoute({ children }) {
                   activeRoute === item.paths[0] && "active-menu-item"
                 }`}
                 key={index}
-                onClick={item.onClick} id="menudiv"
+                onClick={item.onClick}
+                id="menudiv"
               >
                 <span className="text-white">{item.title}</span>
               </div>
@@ -113,29 +114,54 @@ function ProtectedRoute({ children }) {
           })}
         </div>
         <div className="body" style={{ width: "100%" }}>
-  <div className="header flex-justify-between" id="header">
-    <h1 className="text-2xl item-center" id="heading">
-      Barasat Academic Association
-    </h1>
-    <marquee behavior="" direction="" style={{color:"red"}}>Online Admission Going on</marquee>
-    <div className="header-content">
-      <div className="card1">
-        <h2>Contact us for your Next Step</h2>
-        <p>Phone : +91-9073587432 /+91-9073345862 /+91-9073099301</p>
-        <p><span id="span1">(swith DESKTOP MODE for better experience)</span></p>
+          <div className="header flex-justify-between" id="header">
+            <h1 className="text-2xl item-center" id="heading">
+              Barasat Academic Association
+            </h1>
+            <marquee behavior="" direction="" style={{ color: "red" }}>
+              Online Admission Going on
+            </marquee>
+            <div className="header-content">
+              <div className="card1">
+                <h2>Contact us for your Next Step</h2>
+                <p>Phone : +91-9073587432 /+91-9073345862 /+91-9073099301</p>
+                <p>
+                <a href="https://wa.me/+917439120030" target="_blank">
+        <i
+          class="ri-whatsapp-line"
+          style={{
+            width: "5%",
+            height: "auto",
+            display: "block",
+            padding: "1rem",
+            margin: "1rem",
+            position: "fixed",
+            top: "1rem",
+            right: "0.5rem",
+            textAlign: "right",
+            zIndex: 1,
+            color:"green",
+            fontSize:"1rem"
+          }}
+        ></i>
+      </a>
+                  <span id="span1">
+                    (swith DESKTOP MODE for better experience)
+                  </span>
+                </p>
+              </div>
+              <div class="user-info flex gap-1 items-center">
+                <h1 class="text-xl text-white" id="username">
+                  username: {user?.name}
+                </h1>
+                <span id="role">Role: {user?.isAdmin ? "Admin" : "User"}</span>
+              </div>
+            </div>
+          </div>
+          <div className="content">{children}</div>
+        </div>
       </div>
-      <div class="user-info flex gap-1 items-center">
      
-  <h1 class="text-xl text-white" id="username">
-    username: {user?.name}
-  </h1>
-  <span id="role">Role: {user?.isAdmin ? "Admin" : "User"}</span>
-</div>
-    </div>
-  </div>
-  <div className="content">{children}</div>
-</div>
-      </div>
     </div>
   );
 }
