@@ -259,7 +259,7 @@ Submit
       Total marks :{examData.totalMarks}
     </h1>
     <h1 className="text-md">
-      Obtained Marks:{result.correctAnswer.length}
+      Correct answer:{result.correctAnswer.length}
     </h1>
     <h1 className="text-md">
      Wrong answer : {result.wrongAnswer.length}

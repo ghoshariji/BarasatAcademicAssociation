@@ -39,9 +39,9 @@ function AdminReports() {
       render: (text, record) => <>{record.exam ? record.exam.passingMarks : "N/A"}</>,
     },
     {
-      title: "Obtained Marks",
-      dataIndex: "correctAnswers",
-      render: (text, record) => <>{record.result ? (record.result.correctAnswer ? record.result.correctAnswer.length : "N/A") : "N/A"}</>,
+      title: "Score",
+      dataIndex: "score",
+      render: (text, record) => <>{record.result ? (record.result.score !== undefined ? record.result.score : "N/A") : "N/A"}</>,
     },
     {
       title: "Verdict",
