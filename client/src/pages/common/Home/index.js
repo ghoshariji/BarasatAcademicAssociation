@@ -45,7 +45,7 @@ function Index() {
               <h1 className="text-md">Category : {exam.category}</h1>
               <h1 className="text-md">Total Marks : {exam.totalMarks}</h1>
               <h1 className="text-md">Passing Marks : {exam.passingMarks}</h1>
-              <h1 className="text-md">Duration : {exam.duration}</h1>
+              <h1 className="text-md">Duration (In seconds) : {exam.duration}(s)</h1>
 
               <button
                 className="primary-outlined-btn"

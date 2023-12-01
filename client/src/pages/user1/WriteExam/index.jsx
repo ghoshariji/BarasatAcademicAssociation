@@ -19,6 +19,7 @@ function WriteExam() {
   const [timeup,setTimeup] = useState(false);
   const [intervalId,setintervalId] = useState(null);
   const {user} = useSelector(state=> state.users);
+// Check condition for exam submitted or not
 
   const getExamData = async () => {
     try {
@@ -78,6 +79,7 @@ function WriteExam() {
 
 const calculateResult = async () => {
   try {
+
     let correctAnswer = [];
     let wrongAnswer = [];
     let score = 0;
@@ -169,14 +171,14 @@ if(timeup && view==='questions'){
         )}
 
       
-{view === "questions" && (
+{view === "questions"  && (
   <div className="flex flex-col gap-2">
     <div className="flex justify-between">
     <h1 className="text-2xl">
       {selectedQuestion + 1}: {questions[selectedQuestion].name}
     </h1>
     <div className="timer">
-      <span className="text-2xl">{seconds}</span>
+      <span className="text-2xl">Time : {seconds}(s) left</span>
     </div>
     </div>
     <div className="flex flex-col gap-2">

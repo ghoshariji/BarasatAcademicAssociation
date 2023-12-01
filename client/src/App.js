@@ -3,6 +3,7 @@ import "./stylesheets/alignment.css";
 import "./stylesheets/textelement.css";
 import "./stylesheets/layout.css";
 import "./stylesheets/custom.css";
+import "./stylesheets/profile.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Register from "./pages/common/Registration";
 import Login from "./pages/user/Login";

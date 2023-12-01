@@ -1,0 +1,57 @@
+.profile {
+    display: flex;
+    flex-direction: column;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+   
+    box-shadow: 3px 3px 5px grey;
+  }
+  
+  h1, h3 {
+    color: red;
+  }
+  
+  p {
+    line-height: 1.5;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  ul li {
+    margin-bottom: 10px;
+  }
+  
+  /* Responsive Styling */
+  @media screen and (max-width: 768px) {
+    .profile {
+      padding: 10px;
+    }
+  }
+
+  .course {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: space-between; 
+    padding: 0;
+  }
+  .course p{
+    box-shadow: 3px 3px 3px grey;
+    padding: 0.5rem;
+  }
+
+  .director{
+    display: flex;
+    flex-direction:column;
+  }
+  
+  .image{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    margin: 1rem;
+    box-shadow: 2px 2px 3px grey;
+  }
